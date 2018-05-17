@@ -23,10 +23,8 @@ In this demo I have used angualarJS,NodeJS, HTML & Bootstrap CSS  .
 3. Run npm install
 4. Run node server.js
 
-## Contributors
-
-Himanshu Khatri
+## Contributors1expertdevv
 
 ## License
 
-Developed by H. Khatri
+Developed by 1expertdevv

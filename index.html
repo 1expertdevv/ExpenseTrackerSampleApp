@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en" ng-app="expenseApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Expense Tracking Demo</title>
+    <!-- CSS References -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- JS References -->
+    <script src="js/thirdparty/custom.modernizr.js"></script>
+	 
+</head>
+<body>
+    <!-- Header and Navigation Menu -->
+
+    <nav class="navbar navbar-inverse" role="navigation" ng-controller="NavController">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Expense Tracker Demo</a>
+            </div>
+            <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-click="navCollapsed = !navCollapsed" ng-class="{active:isActive('/dashboard')}">
+                        <a href="#/dashboard">Dashboard</a>
+                    </li>
+                    <li ng-click="navCollapsed = !navCollapsed">
+                        <a ng-controller="ModalController" ng-click="open()">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+	
+	
+	<div class="tab" id="SideMenu">
+  <button class="tablinks active" onclick="openCity(event, 'div_create')" id="default_div">Create Expense</button>
+  <button class="tablinks" onclick="openCity(event, 'div_list')">Expense List</button>
+  <button class="tablinks" onclick="openCity(event, 'div_weekly')">Weekly Expense</button>
+</div>
+
+	
+	
+    <!--End Header and Navigation -->
+    <div ng-view></div>
+    <script src="js/thirdparty/jquery.js"></script>
+    <script src="js/thirdparty/angular.min.js"></script>
+    <!--<script src="js/thirdparty/angularfire.min.js"></script>-->
+    <script src="js/app.js"></script>
+    <script src="js/app.extension.js"></script>
+    <script src="js/thirdparty/ui-bootstrap-tpls-0.6.0.min.js"></script>
+	
+	
+	<script>
+	$('#SideMenu').css("height", $(document).height());
+	
+	
+	function openCity(evt, moduleName) {
+		var i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+		tablinks = document.getElementsByClassName("tablinks");
+		for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+		}
+		document.getElementById(moduleName).style.display = "block";
+		evt.currentTarget.className += " active";
+	}
+
+		// Get the element with id="default_div" and click on it
+		document.getElementById("default_div").click();
+</script>
+</body>
+</html>
